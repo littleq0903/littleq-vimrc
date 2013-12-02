@@ -1,4 +1,4 @@
-" `git clone git@github.com:Shougo/neobundle.vim.git` to ~/.vim/bundle at first
+
 " NeoBundle Settings
 if has('vim_starting')
     set nocompatible
@@ -17,6 +17,7 @@ NeoBundle 'baskerville/bubblegum'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'jnwhiteh/vim-golang'
 "NeoBundle 'georgefs/vim-copycat'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'davidhalter/jedi-vim'
@@ -119,10 +120,12 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 
 "" Solarized Color Theme
-syntax enable
+syntax on
 set t_Co=256
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
+let g:solarized_contrast="high"
+set background=dark
 colorscheme solarized
 
 "" Status line
@@ -174,3 +177,4 @@ let g:copycat#auto_sync = 1
 let g:copycat#overwrite_ctrlkeys = 0
 
 set clipboard=unnamed
+set backspace=indent,eol,start
