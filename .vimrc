@@ -1,3 +1,4 @@
+" `git clone git@github.com:Shougo/neobundle.vim.git` to ~/.vim/bundle at first
 
 " NeoBundle Settings
 if has('vim_starting')
