@@ -50,6 +50,7 @@ NeoBundle 'othree/javascript-libraries-syntax.vim'
 NeoBundle 'Pychimp/Pychimp-vim'
 NeoBundle 'farseer90718/flattr.vim'
 NeoBundle 'hynek/vim-python-pep8-indent'
+NeoBundle 'farseer90718/vim-taskwarrior'
 
 call neobundle#end()
 
