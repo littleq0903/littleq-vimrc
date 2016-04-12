@@ -11,7 +11,15 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc.vim', {
+            \ 'build' : {
+            \     'windows' : 'tools\\update-dll-mingw',
+            \     'cygwin' : 'make -f make_cygwin.mak',
+            \     'mac' : 'make',
+            \     'linux' : 'make',
+            \     'unix' : 'gmake',
+            \    },
+            \ }
 NeoBundle 'Shougo/unite.vim'
 
 " My bundles
@@ -50,7 +58,7 @@ NeoBundle 'othree/javascript-libraries-syntax.vim'
 NeoBundle 'Pychimp/Pychimp-vim'
 NeoBundle 'farseer90718/flattr.vim'
 NeoBundle 'hynek/vim-python-pep8-indent'
-NeoBundle 'farseer90718/vim-taskwarrior'
+NeoBundle 'vim-airline/vim-airline-themes'
 
 call neobundle#end()
 
@@ -160,10 +168,10 @@ let g:solarized_termtrans=1
 let g:solarized_contrast="high"
 
 set background=dark
-colorscheme bubblegum
+colorscheme bubblegum-256-dark
 
 " clean background color
-highlight Normal ctermbg=None
+"highlight Normal ctermbg=None
 
 
 set cursorline
@@ -186,16 +194,24 @@ let g:jedi#show_call_signatures = 0
 let g:jedi#use_splits_not_buffers = 'right'
 
 "autocmd FileType python set omnifunc=pythoncomplete#Complete
+"
 "noremap   <Up>     <NOP>
 "noremap   <Down>   <NOP>
 "noremap   <Left>   <NOP>
 "noremap   <Right>  <NOP>
 
-"resizing window with up/down/right/left arrow key
+"switch among windows with up/down/right/left arrow key under normal mode
 noremap   <Right> <c-w>l
 noremap   <Left> <c-w>h
 noremap   <Up> <c-W>k
 noremap   <Down> <c-W>j
+
+"resize window with ,+<arrow>
+noremap <silent> <Leader><Up>    5<c-w>+ 
+noremap <silent> <Leader><Down>  5<c-w>-
+noremap <silent> <Leader><Right> 20<c-w>> 
+noremap <silent> <Leader><Left>  20<c-w><
+
 
 map f <Leader><Leader>f
 map F <Leader><Leader>F
@@ -205,7 +221,7 @@ map F <Leader><Leader>F
 set whichwrap+=<,>,h,l,[,]
 
 "" Airline settings
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
